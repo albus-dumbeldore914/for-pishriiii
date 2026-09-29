@@ -1,0 +1,263 @@
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM & STYLES
+   Emotional, Sincere, Soft Aesthetic
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-deep: #16050a;
+  --bg-surface: #220911;
+  --bg-card: rgba(45, 14, 25, 0.65);
+  --bg-card-hover: rgba(65, 20, 36, 0.75);
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --bg-glass-strong: rgba(255, 255, 255, 0.08);
+
+  --burgundy-dark: #2a0b14;
+  --burgundy-rich: #481323;
+  --burgundy-bright: #691b33;
+  --rose-accent: #d85774;
+  --rose-soft: #f2a8b7;
+  --rose-glow: rgba(216, 87, 116, 0.25);
+  --rose-light: #fce7ec;
+
+  --cream-pure: #fffdfa;
+  --cream-soft: #f8f1e8;
+  --cream-muted: #e2d7ca;
+  --text-muted: #bda9a3;
+  --text-faint: #8a7370;
+
+  --parchment-bg: #fcf6eb;
+  --parchment-border: #ebdcc7;
+  --ink-color: #2b1f1d;
+  --ink-muted: #5e4d49;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  /* Effects */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --border-subtle: 1px solid rgba(242, 168, 183, 0.12);
+  --border-active: 1px solid rgba(242, 168, 183, 0.35);
+  --border-glow: 1px solid rgba(216, 87, 116, 0.5);
+
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 15px 35px -5px rgba(22, 5, 10, 0.7), 0 0 20px -5px rgba(216, 87, 116, 0.08);
+  --shadow-glow: 0 0 40px rgba(216, 87, 116, 0.2);
+
+  /* Transitions */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  color: var(--cream-soft);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 50% 10%, #350f1c 0%, #16050a 55%, #0f0307 100%);
+  background-attachment: fixed;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--rose-accent);
+  color: var(--cream-pure);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(216, 87, 116, 0.3);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(216, 87, 116, 0.6);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--cream-pure);
+}
+
+p {
+  color: var(--cream-muted);
+}
+
+/* Layout Utilities */
+.site-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section-spacing {
+  padding: 6rem 0;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .section-spacing {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Badge / Tag */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(216, 87, 116, 0.12);
+  border: var(--border-subtle);
+  color: var(--rose-soft);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #d85774 0%, #aa2748 100%);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 6px 20px rgba(216, 87, 116, 0.35);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(216, 87, 116, 0.5);
+  background: linear-gradient(135deg, #e36a85 0%, #bb3356 100%);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cream-soft);
+  border: var(--border-subtle);
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--rose-soft);
+  color: var(--cream-pure);
+  transform: translateY(-2px);
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242, 168, 183, 0.4), transparent);
+}
+
+.glass-card:hover {
+  border-color: rgba(242, 168, 183, 0.28);
+  box-shadow: 0 20px 40px -10px rgba(15, 3, 7, 0.9), 0 0 25px rgba(216, 87, 116, 0.15);
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
